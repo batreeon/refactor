@@ -1,5 +1,5 @@
 // refactor 1_4.js 
-// 修改参数名
+// 删去一个参数
 
 function statement(invoice, plays) {
     let totalAmount = 0;
