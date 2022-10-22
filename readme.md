@@ -56,3 +56,6 @@
 * 将plays里的playname和playtype也存到data里。具体是存在performance的play字段里
 * playFor函数要使用plays变量，因此将其嵌套在statement函数中，这样renderPlainText就可以删除plays参数了
 * 接下来将原函数中要用到performance.name和performance.type的地方都替换了（renderPlainText，amountFor和volumnCreditsFor函数中），替换成data.performances[i].name或type
+
+[1_6_4.js](./ch1/1_6_4.js)
+* 将amountFor函数搬移出来
