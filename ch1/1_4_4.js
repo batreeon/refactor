@@ -1,6 +1,7 @@
 // refactor 1_4.js 
 // 将计算credits的逻辑提炼成函数；将format提炼成函数，避免使用临时变量，临时变量值在局部使用，很容易导致代码变长变复杂；将所有thisAmuount都变成内联形式
-
+// 将format这个较通用的名称修改为usd，函数名更加清晰，可以让人不用看函数体就知道函数的用处
+// 并且将除以100放到usd里。美分美元转换
 function statement(invoice, plays) {
     let totalAmount = 0;
     let volumeCredits = 0;
@@ -10,10 +11,10 @@ function statement(invoice, plays) {
         volumeCredits += volumeCreditsFor(perf)
 
         // print line for this order
-        result += ` ${playFor(perf).name}: ${format(amountFor(perf) / 100)} (${perf.audience} seats)\n`;
+        result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
         totalAmount += amountFor(perf);
     }
-    result += `Amount owed is ${format(totalAmount / 100)}\n`;
+    result += `Amount owed is ${usd(totalAmount)}\n`;
     result += `You earned ${volumeCredits} credits\n`;
     return result;
 
@@ -51,12 +52,12 @@ function statement(invoice, plays) {
         return result
     }
 
-    function format(aNumber) {
+    function usd(aNumber) {
         return new Intl.NumberFormat("en-US",
         {
             style: "currency", currency: "USD",
             minimumFractionDigits: 2
-        }).format(aNumber);
+        }).format(aNumber / 100);
     }
 }
 
