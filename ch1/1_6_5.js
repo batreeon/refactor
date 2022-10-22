@@ -1,5 +1,5 @@
-// refactor 1_6_2.js
-// 搬移amountFor函数
+// refactor 1_6_4.js
+// 搬移columnCreditsFor观众量积分函数
 
 function statement(invoice, plays) {
     const statementData = {};
@@ -8,9 +8,10 @@ function statement(invoice, plays) {
     return renderPlainText(statementData)
 
     function enrichPerformance(aPerformance) {
-        const result = Object.assign({}, aPerformance)
-        result.play = playFor(result)
+        const result = Object.assign({}, aPerformance);
+        result.play = playFor(result);
         result.amount = amountFor(result);
+        result.volumeCredits = volumeCreditsFor(result)
         return result
     }
     // playFor函数要使用plays变量，因此将其嵌套在statement函数中，这样renderPlainText就可以删除plays参数了
@@ -40,6 +41,14 @@ function statement(invoice, plays) {
         }
         return result;
     }
+
+    function volumeCreditsFor(aPerformance) {
+        // 计算观众积分
+        let result = Math.max(aPerformance.audience - 30, 0);
+        // add extra credit for every five comedy attendees
+        if ("comedy" === aPerformance.play.type) result += Math.floor(aPerformance.audience / 5);
+        return result;
+    }
 }
 
 function renderPlainText(data) {
@@ -53,14 +62,6 @@ function renderPlainText(data) {
     result += `You earned ${totalVolumeCredits()} credits\n`;
     return result;
 
-    function volumeCreditsFor(aPerformance) {
-        // 计算观众积分
-        let result = Math.max(aPerformance.audience - 30, 0);
-        // add extra credit for every five comedy attendees
-        if ("comedy" === aPerformance.play.type) result += Math.floor(aPerformance.audience / 5);
-        return result;
-    }
-
     function usd(aNumber) {
         return new Intl.NumberFormat("en-US",
         {
@@ -72,7 +73,7 @@ function renderPlainText(data) {
     function totalVolumeCredits() {
         let result = 0;
         for (let perf of data.performances) {
-            result += volumeCreditsFor(perf);
+            result += perf.volumeCredits;
         }
         return result;
     }
