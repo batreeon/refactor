@@ -59,3 +59,6 @@
 
 [1_6_4.js](./ch1/1_6_4.js)
 * 将amountFor函数搬移出来
+
+[1_6_5.js](./ch1/1_6_5.js)
+* 搬移columnCreditsFor观众量积分函数
