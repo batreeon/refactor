@@ -1,6 +1,6 @@
 // refactor 1_6_6.js
 // 使用数组的reduce方法改造totalAmount和totalVolumeCredits函数
-// 把准备statement数据又提炼成了一个函数。现在statement函数把数据准备好，然后render只需要接受数据，将数据组织成目标形式就可以了
+// 把准备statement数据又提炼成了一个函数。现在statement函数把数据准备好，然后render不再进行计算，只需要接受数据，将数据组织成目标形式就可以了
 
 function statement(invoice, plays) {
     return renderPlainText(createStatementData(invoice, plays))
