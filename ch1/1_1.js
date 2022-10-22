@@ -42,7 +42,7 @@ function statement(invoice, plays) {
     return result;
 }
 
-const invoices = require("./invoces.json");
+const invoices = require("./invoices.json");
 const plays = require("./plays.json");
 
 // console.log(invoices)

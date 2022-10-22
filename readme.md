@@ -51,3 +51,8 @@
 
 [1_6_2.js](./ch1/1_6_2.js)
 * 将invoice中的customer和performance放到data里面去，这样就可以删去invoice了 。同时注意totalVolumeCredits和totalAmount都是嵌套在renderPlainText中的，并且使用了invoice变量，现在这两个函数的参数也需要从data中获取了，需要修改这两个函数。
+
+[1_6_3.js](./ch1/1_6_3.js)
+* 将plays里的playname和playtype也存到data里。具体是存在performance的play字段里
+* playFor函数要使用plays变量，因此将其嵌套在statement函数中，这样renderPlainText就可以删除plays参数了
+* 接下来将原函数中要用到performance.name和performance.type的地方都替换了（renderPlainText，amountFor和volumnCreditsFor函数中），替换成data.performances[i].name或type
