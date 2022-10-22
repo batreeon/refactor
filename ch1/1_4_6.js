@@ -1,17 +1,14 @@
 // refactor 1_4.js 
-// 将计算credits总和的逻辑提炼出来，拆分循环，提炼成函数，然后使用内联变量
+// 将计算totalAmount的逻辑提炼出来，拆分循环，提炼成函数，然后使用内联变量
 
 function statement(invoice, plays) {
-    let totalAmount = 0;
-    let volumeCredits = 0;
     let result = `Statement for ${invoice.customer}\n`;
     
     for (let perf of invoice.performances) {
         // print line for this order
         result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
-        totalAmount += amountFor(perf);
     }
-    result += `Amount owed is ${usd(totalAmount)}\n`;
+    result += `Amount owed is ${usd(totalAmount())}\n`;
     result += `You earned ${totalVolumeCredits()} credits\n`;
     return result;
 
@@ -61,6 +58,14 @@ function statement(invoice, plays) {
         let result = 0;
         for (let perf of invoice.performances) {
             result += volumeCreditsFor(perf);
+        }
+        return result;
+    }
+
+    function totalAmount() {
+        let result = 0;
+        for (let perf of invoice.performances) {
+            result += amountFor(perf);
         }
         return result;
     }
