@@ -73,3 +73,6 @@
 [1_6_8](./ch1/1_6_8/)
 * 将createStatementData函数拆分到另一个文件里。
 * ***使用module.exports导出函数，使用require引用其他文件中的函数***
+
+[1_6_9](./ch1/1_6_9/)
+* renderHtml()
