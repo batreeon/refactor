@@ -1,4 +1,4 @@
-// refactor 1_6_3.js
+// refactor 1_6_2.js
 // 搬移amountFor函数
 
 function statement(invoice, plays) {
