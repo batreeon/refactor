@@ -23,21 +23,21 @@
 [1_1.js](./ch1/1_1.js)
 * 原始的一段代码
 
-[1_4.js](./ch1/1_4.js)
+[1_4.js](./ch1/1_4/1_4.js)
 * 将计算一个表演的花费提炼成函数
 
-[1_4_2.js](./ch1/1_4_2.js) [1_4_3.js](./ch1/1_4_3.js)
+[1_4_2.js](./ch1/1_4/1_4_2.js) [1_4_3.js](./ch1/1_4/1_4_3.js)
 * 函数两个参数，一个参数可以用另一个参数计算出来，删除一个参数，并使用内联替换临时变量
 
-[1_4_4.js](./ch1/1_4_4.js)
+[1_4_4.js](./ch1/1_4/1_4_4.js)
 * 将计算credits的逻辑提炼成函数将format提炼成函数，避免使用临时变量，临时变量值在局部使用，很容易导致代码变长变复杂
 * 将所有thisAmuount都变成内联形式
 * 将format这个较通用的名称修改为usd，函数名更加清晰，可以让人不用看函数体就知道函数的用处。并且将除以100放到usd里。美分美元转换
 
-[1_4_5.js](./ch1/1_4_5.js)
+[1_4_5.js](./ch1/1_4/1_4_5.js)
 * 将计算credits总和的逻辑提炼出来，拆分循环，提炼成函数，然后使用内联变量
 
-[1_4_6.js](./ch1/1_4_6.js)
+[1_4_6.js](./ch1/1_4/1_4_6.js)
 * 将计算totalAmount的逻辑提炼出来，拆分循环，提炼成函数，然后使用内联变量
 
 至此，原始的1_1.js一大段让人头疼的代码，已经被一点一点地拆分到几个小函数里了。
@@ -48,33 +48,33 @@
 第二阶段将数据渲染成文本或html  
 第一阶段会创建一个中转数据，然后把它传递给第二阶段
 
-[1_6_1.js](./ch1/1_6_1.js)
+[1_6_1.js](./ch1/1_6/1_6_1.js)
 * 将打印详单的的代码提出来。命名renderPlainText
 
-[1_6_2.js](./ch1/1_6_2.js)
+[1_6_2.js](./ch1/1_6/1_6_2.js)
 * 将invoice中的customer和performance放到data里面去，这样就可以删去invoice了 。同时注意totalVolumeCredits和totalAmount都是嵌套在renderPlainText中的，并且使用了invoice变量，现在这两个函数的参数也需要从data中获取了，需要修改这两个函数。
 
-[1_6_3.js](./ch1/1_6_3.js)
+[1_6_3.js](./ch1/1_6/1_6_3.js)
 * 将plays里的playname和playtype也存到data里。具体是存在performance的play字段里
 * playFor函数要使用plays变量，因此将其嵌套在statement函数中，这样renderPlainText就可以删除plays参数了
 * 接下来将原函数中要用到performance.name和performance.type的地方都替换了（renderPlainText，amountFor和volumnCreditsFor函数中），替换成data.performances[i].name或type
 
-[1_6_4.js](./ch1/1_6_4.js)
+[1_6_4.js](./ch1/1_6/1_6_4.js)
 * 将amountFor函数搬移出来
 
-[1_6_5.js](./ch1/1_6_5.js)
+[1_6_5.js](./ch1/1_6/1_6_5.js)
 * 搬移columnCreditsFor观众量积分函数
 
-[1_6_6.js](./ch1/1_6_6.js)
+[1_6_6.js](./ch1/1_6/1_6_6.js)
 * 将totalAmount和totalVolumeCredits函数，搬移到了statement函数中。其实可以改造函数体使用外部的statementData变量，但是采用了传递一个参数来避免修改函数体。
 
-[1_6_7.js](./ch1/1_6_7.js)
+[1_6_7.js](./ch1/1_6/1_6_7.js)
 * 使用数组的reduce方法改造totalAmount和totalVolumeCredits函数
 * 把准备statement数据又提炼成了一个函数。现在statement函数把数据准备好。然后render不再进行计算，只需要接受数据，将数据组织成目标形式就可以了。
 
-[1_6_8](./ch1/1_6_8/)
+[1_6_8](./ch1/1_6/1_6_8/)
 * 将createStatementData函数拆分到另一个文件里。
 * ***使用module.exports导出函数，使用require引用其他文件中的函数***
 
-[1_6_9](./ch1/1_6_9/)
+[1_6_9](./ch1/1_6/1_6_9/)
 * renderHtml()
