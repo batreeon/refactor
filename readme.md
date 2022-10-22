@@ -65,3 +65,7 @@
 
 [1_6_6.js](./ch1/1_6_6.js)
 * 将totalAmount和totalVolumeCredits函数，搬移到了statement函数中。其实可以改造函数体使用外部的statementData变量，但是采用了传递一个参数来避免修改函数体。
+
+[1_6_7.js](./ch1/1_6_7.js)
+* 使用数组的reduce方法改造totalAmount和totalVolumeCredits函数
+* 把准备statement数据又提炼成了一个函数。现在statement函数把数据准备好。然后render只需要接受数据，将数据组织成目标形式就可以了。
