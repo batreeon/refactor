@@ -1,4 +1,4 @@
-// refactor 1_4.js 
+// refactor 1_4_4.js 
 // 将计算credits总和的逻辑提炼出来，拆分循环，提炼成函数，然后使用内联变量
 
 function statement(invoice, plays) {

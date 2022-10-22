@@ -1,4 +1,4 @@
-// refactor 1_4.js 
+// refactor 1_4_2.js 
 // 删去一个参数
 
 function statement(invoice, plays) {
