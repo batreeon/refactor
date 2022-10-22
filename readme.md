@@ -62,3 +62,6 @@
 
 [1_6_5.js](./ch1/1_6_5.js)
 * 搬移columnCreditsFor观众量积分函数
+
+[1_6_6.js](./ch1/1_6_6.js)
+* 将totalAmount和totalVolumeCredits函数，搬移到了statement函数中。其实可以改造函数体使用外部的statementData变量，但是采用了传递一个参数来避免修改函数体。
