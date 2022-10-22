@@ -69,3 +69,7 @@
 [1_6_7.js](./ch1/1_6_7.js)
 * 使用数组的reduce方法改造totalAmount和totalVolumeCredits函数
 * 把准备statement数据又提炼成了一个函数。现在statement函数把数据准备好。然后render不再进行计算，只需要接受数据，将数据组织成目标形式就可以了。
+
+[1_6_8](./ch1/1_6_8/)
+* 将createStatementData函数拆分到另一个文件里。
+* ***使用module.exports导出函数，使用require引用其他文件中的函数***
