@@ -16,6 +16,7 @@ console.log(Object.getPrototypeOf(doSomething));
 console.log(doSomething.__proto__);
 ```
 输出：
+
 ![](./img/prototype1.png)
 
 可以看到prototype和__proto__属性是不一样的。    
@@ -27,13 +28,16 @@ let doSomeInstance = new doSomething()
 console.log(doSomeInstanc.__proto__);
 ```
 输出：
+
 ![](./img/prototype2.png)
 `doSomeInstance`是`doSomething`的实例。可以看到实例的`__proto__`属性 和 类的`prototype`属性是一样的。实例没有`constructor function`，也没有`prototype`属性。
 
 好了，这里主要要分清`__proto__`和`prototype`。这下再看前面，***js的方法和属性继承是基于`__proto__`的。***, 实例通过`__proto__`属性和类建立连接。
 
 下面这个我有点点没搞懂为什么和上面有点点区别。
+
 ![](./img/prototype3.png)
 
 下面这个就很好分析了。上面我们已经看到实例的`__proto__`和类的`prototype`是一样的。所以实例的`foo`属性有值。而类的`__proto__`不等同于类的`prototype`，所以`doSomething`的`foo`属性没值。
+
 ![](./img/prototype4.png)
