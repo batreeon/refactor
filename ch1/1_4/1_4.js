@@ -9,7 +9,7 @@ function amountFor(perf, play) {
             }
             break;
         case "comedy":
-            thisAmount = 30000;
+            result = 30000;
             if (perf.audience > 20) {
                 result += 10000 + 500 * (perf.audience - 20);
             }
