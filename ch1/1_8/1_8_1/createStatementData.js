@@ -12,7 +12,7 @@ function createStatementData(invoice, plays) {
         const result = Object.assign({}, aPerformance);
         result.play = calculator.play;
         result.amount = calculator.amount;
-        result.volumeCredits = calculator.volumeCreditsFor;
+        result.volumeCredits = calculator.volumeCredits;
         return result
     }
     // playFor函数要使用plays变量，因此将其嵌套在statement函数中，这样renderPlainText就可以删除plays参数了
@@ -59,7 +59,7 @@ class PerformanceCalculator {
         return result;
     }
 
-    get volumeCreditsFor() {
+    get volumeCredits() {
         // 计算观众积分
         let result = Math.max(this.performance.audience - 30, 0);
         // add extra credit for every five comedy attendees
